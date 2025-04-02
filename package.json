@@ -1,0 +1,82 @@
+{
+  "name": "m31-code",
+  "displayName": "M31-Code",
+  "description": "AI-powered coding assistance",
+  "version": "0.1.0",
+  "engines": {
+    "vscode": "^1.60.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Machine Learning",
+    "Other"
+  ],
+  "activationEvents": [
+    "onCommand:m31-code.suggest",
+    "onCommand:m31-code.openChat",
+    "onCommand:m31-code.switchModel"
+  ],
+  "main": "./dist/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "m31-code.suggest",
+        "title": "M31: Get Code Suggestion"
+      },
+      {
+        "command": "m31-code.openChat",
+        "title": "M31: Open AI Chat"
+      },
+      {
+        "command": "m31-code.switchModel",
+        "title": "M31: Switch AI Model"
+      }
+    ],
+    "configuration": {
+      "title": "M31-Code",
+      "properties": {
+        "m31-code.defaultModel": {
+          "type": "string",
+          "default": "gpt4",
+          "description": "Default AI model to use"
+        },
+        "m31-code.apiKey": {
+          "type": "string",
+          "default": "",
+          "description": "API key for AI service"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "vscode:prepublish": "npm run compile",
+    "compile": "tsc -p ./",
+    "watch": "tsc -watch -p ./",
+    "test": "node ./out/test/runTest.js",
+    "lint": "eslint src --ext ts",
+    "pretest": "npm run compile && npm run lint",
+    "dev": "vite"
+  },
+  "devDependencies": {
+    "@types/glob": "^8.1.0",
+    "@types/mocha": "^10.0.6",
+    "@types/node": "^20.11.24",
+    "@types/react": "^18.2.61",
+    "@types/react-dom": "^18.2.19",
+    "@types/vscode": "^1.60.0",
+    "@types/vscode-webview": "^1.57.5",
+    "@typescript-eslint/eslint-plugin": "^7.1.0",
+    "@typescript-eslint/parser": "^7.1.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "eslint": "^8.57.0",
+    "glob": "^10.3.10",
+    "mocha": "^10.3.0",
+    "typescript": "^5.3.3",
+    "vite": "^5.1.4"
+  },
+  "dependencies": {
+    "@vscode/webview-ui-toolkit": "^1.4.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
